@@ -29,7 +29,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `How it works:'
+### How it works: 
 
 Once opened in browser in any screen size, user sees a text field and a disabled favorites icon. When user types in this text field, he sees the results in the list below where he/she can make an item favorite by clicking favorite button against every item.
 When at least one item is marked as favorite, the button is enabled and favorite list can be visualized by clicking this enabled button. From here, user can filter by adding input to the text field present in the modal and also, remove item(s) from this list as well.
