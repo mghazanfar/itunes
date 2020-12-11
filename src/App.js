@@ -1,16 +1,21 @@
 import "./App.css";
-import { Box, Typography, IconButton } from "@material-ui/core";
+import { Box, Typography, IconButton, withWidth } from "@material-ui/core";
 import { Favorite } from "@material-ui/icons";
 import SelectArtist from "./components/searchArtists";
 import Favorites from "./components/favourites";
 import { useState } from "react";
 
-function App() {
+function App({ width }) {
   const [favorites, setFavorites] = useState([]);
+  const isLarge = width === "lg" || width === "xl";
   return (
     <div className="App">
-      <Box padding={24} pt={2}>
-        <Typography variant="h1" component="h2" gutterBottom>
+      <Box padding={isLarge ? 24 : 8} pt={isLarge && 2}>
+        <Typography
+          variant={isLarge ? "h1" : ""}
+          component={isLarge && "h2"}
+          gutterBottom
+        >
           iTunes Search App
         </Typography>
         <Favorites
@@ -36,4 +41,4 @@ function App() {
   );
 }
 
-export default App;
+export default withWidth()(App);

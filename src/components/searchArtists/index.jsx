@@ -21,7 +21,7 @@ export default function SelectArtist({ handleFavourite, favorites }) {
         .then((res) => {
           setLoading(false);
           let options = res.data.results;
-          debugger;
+
           setOptions(options);
         })
         .catch((err) => setLoading(false));
