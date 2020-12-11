@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Box, Typography, IconButton } from "@material-ui/core";
+import { Favorite } from "@material-ui/icons";
+import SelectArtist from "./components/searchArtists";
+import Favorites from "./components/favourites";
+import { useState } from "react";
 
 function App() {
+  const [favorites, setFavorites] = useState([]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Box padding={24} pt={2}>
+        <Typography variant="h1" component="h2" gutterBottom>
+          iTunes Search App
+        </Typography>
+        <Favorites
+          data={favorites}
+          handleDelete={(id) => {
+            let items = [...favorites].filter(
+              (item) => item.collectionId !== id
+            );
+            setFavorites(items);
+          }}
+        />
+
+        <SelectArtist
+          handleFavourite={(item) => {
+            let items = [...favorites, item];
+            items = [...new Set(items)];
+            setFavorites(items);
+          }}
+          favorites={favorites}
+        />
+      </Box>
     </div>
   );
 }
